@@ -6,6 +6,7 @@ import com.epam.training.student_andrii_dolhopolov.pages.CloudGooglePricingCalcu
 import com.epam.training.student_andrii_dolhopolov.pages.SendEmailEstimateForm;
 import com.epam.training.student_andrii_dolhopolov.pages.yopmail.YopmailGeneratorPage;
 import com.epam.training.student_andrii_dolhopolov.pages.yopmail.YopmailHomePage;
+import com.epam.training.student_andrii_dolhopolov.service.TestDataCreator;
 import org.openqa.selenium.WindowType;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -17,7 +18,7 @@ public class EmailEstimateTest extends AbstractTest{
     public void emailEstimatedCostTest() {
 
 
-        CalculatorFormTestData testCalculatorFormData = new CalculatorFormTestData().fastSetTestData();
+        CalculatorFormTestData testCalculatorFormData = TestDataCreator.withEnvironmentProperties();
         CloudGooglePricingCalculatorPage calculatorPage = new CloudGoogleHomePage(driver)
                 .openPage()
                 .inputSearchTerm(searchTerm)

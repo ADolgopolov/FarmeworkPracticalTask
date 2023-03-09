@@ -17,32 +17,28 @@ public class CalculatorFormTestData {
     public CalculatorFormTestData() {
     }
 
-    public CalculatorFormTestData fastSetTestData() {
-        productName = "Compute Engine";
-        numberOfInstances = "4";
-        operationSystem = "Free"; //Free: Debian, CentOS, CoreOS, Ubuntu, or other User Provided OS
-        VMClass = "Regular";
-        instanceSeries = "N1";
-        instanceType = "n1-standard-8";
-        numberOfGPUs = "1";
-        GPUType = "NVIDIA Tesla P100"; //not available "NVIDIA Tesla V100" on Location Frankfurt;
-        localSSD = "2x375";
-        regionDatacenterLocation = "Frankfurt";
-        committedUsage = "1 Year";
-        estimatedComponentCostPerMonth = "4,024.56";
-        return this;
-    }
-
     public String getProductName() {
         return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 
     public String getNumberOfInstances() {
         return numberOfInstances;
     }
 
+    public void setNumberOfInstances(String numberOfInstances) {
+        this.numberOfInstances = numberOfInstances;
+    }
+
     public String getOperationSystem() {
         return operationSystem;
+    }
+
+    public void setOperationSystem(String operationSystem) {
+        this.operationSystem = operationSystem;
     }
 
     public String getVMClass() {
@@ -57,6 +53,10 @@ public class CalculatorFormTestData {
         return instanceSeries;
     }
 
+    public void setInstanceSeries(String instanceSeries) {
+        this.instanceSeries = instanceSeries;
+    }
+
     public String getInstanceType() {
         return instanceType;
     }
@@ -69,8 +69,16 @@ public class CalculatorFormTestData {
         return numberOfGPUs;
     }
 
+    public void setNumberOfGPUs(String numberOfGPUs) {
+        this.numberOfGPUs = numberOfGPUs;
+    }
+
     public String getGPUType() {
         return GPUType;
+    }
+
+    public void setGPUType(String GPUType) {
+        this.GPUType = GPUType;
     }
 
     public String getLocalSSD() {
