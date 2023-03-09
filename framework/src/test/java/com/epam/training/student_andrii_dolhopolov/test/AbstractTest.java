@@ -1,9 +1,9 @@
 package com.epam.training.student_andrii_dolhopolov.test;
 
+import com.epam.training.student_andrii_dolhopolov.driver.DriverSingleton;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import com.epam.training.student_andrii_dolhopolov.driver.DriverSingleton;
 
 public class AbstractTest {
     protected WebDriver driver;
