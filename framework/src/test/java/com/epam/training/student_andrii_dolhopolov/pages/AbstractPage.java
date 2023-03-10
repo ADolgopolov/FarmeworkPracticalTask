@@ -9,10 +9,11 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.List;
 
 public abstract class AbstractPage {
     protected WebDriver driver;
-    private static final long WAIT_TIMEOUT_SECONDS = 10;
+    private static final long WAIT_TIMEOUT_SECONDS = 20;
 
     protected AbstractPage(WebDriver driver) {
         this.driver = driver;
@@ -26,7 +27,24 @@ public abstract class AbstractPage {
         actions.perform();
         return element;
     }
-
+    protected void selectDropdownOption(String option) {
+        WebElement dropdownOption =
+                waitPresenceOfElementLocated(By.xpath(String.format("//div[contains(@class, 'md-active')]//md-option/div[contains(text(), '%s')]", option)));
+        dropdownOption.click();
+        waitInvisibilityOf(dropdownOption);
+    }
+    protected void waitInvisibilityOf(WebElement element) {
+        new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS))
+                .until(ExpectedConditions.invisibilityOf(element));
+    }
+    protected WebElement waitPresenceOfElementLocated(By locator) {
+        return new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS))
+                .until(ExpectedConditions.presenceOfElementLocated(locator));
+    }
+    protected List<WebElement> waitPresenceOfAllElementsLocatedBy(By locator) {
+        return new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS))
+                .until(ExpectedConditions.presenceOfAllElementsLocatedBy(locator));
+    }
     public WebElement waitVisibilityOfElementLocated(By locator) {
         return new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS)).until(ExpectedConditions.visibilityOfElementLocated(locator));
     }

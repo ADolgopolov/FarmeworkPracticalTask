@@ -16,7 +16,6 @@ public class AbstractTest {
 
     @AfterMethod(alwaysRun = true)
     public void browserTearDown() {
-        //log.info("Closing browser");
         DriverSingleton.closeDriver();
     }
 }
